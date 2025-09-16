@@ -10,12 +10,17 @@
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab"
+		"indentStyle": "tab",
+		"includes": ["src/**/*.{ts,tsx,js,jsx}"]
 	},
 	"linter": {
 		"enabled": true,
+		"includes": ["src/**/*.{ts,tsx,js,jsx}"],
 		"rules": {
-			"recommended": true
+			"recommended": true,
+			"suspicious": {
+				"noUnknownAtRules": "off"
+			}
 		}
 	},
 	"javascript": {
@@ -30,5 +35,10 @@
 				"organizeImports": "on"
 			}
 		}
-	}
+	},
+	"json": {
+    "formatter": {
+      "enabled": false
+    }
+  }
 }

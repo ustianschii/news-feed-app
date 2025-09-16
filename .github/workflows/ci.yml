@@ -22,4 +22,4 @@ jobs:
         run: npm ci
 
       - name: Run Biome lint
-        run: npx @biomejs/biome check --staged
+        run: npx @biomejs/biome check
