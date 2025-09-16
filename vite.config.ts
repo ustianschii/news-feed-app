@@ -5,7 +5,6 @@ import checker from "vite-plugin-checker";
 import viteCompression from "vite-plugin-compression";
 import inspect from "vite-plugin-inspect";
 import svgr from "vite-plugin-svgr";
-import vitePluginVirtual from "vite-plugin-virtual";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -23,9 +22,6 @@ export default defineConfig({
 		visualizer({
 			open: true,
 			gzipSize: true,
-		}),
-		vitePluginVirtual({
-			"virtual:my-module": `export const message = 'Hello from a virtual module!';`,
 		}),
 	],
 	build: {
