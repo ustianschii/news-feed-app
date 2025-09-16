@@ -41,9 +41,9 @@
 		"vite-plugin-svgr": "^4.5.0"
 	},
 	"lint-staged": {
-		"*.{ts,tsx,js,jsx,css,md}": [
-			"biome lint",
-			"biome format --write"
-		]
-	}
+  		"src/**/*.{ts,tsx,js,jsx,css,md}": [
+    		"biome lint",
+    		"biome format --write"
+  ]
+}
 }
