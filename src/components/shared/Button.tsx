@@ -14,11 +14,13 @@ export default function Button({
 	...props
 }: ButtonProps) {
 	const baseStyles =
-		"py-3 rounded font-medium transition-colors focus:outline-none focus:ring-2";
+		"py-3 rounded-xl font-medium transition-colors focus:outline-none focus:ring-2";
 
 	const variants = {
-		primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
-		secondary: "bg-gray-200 text-black hover:bg-gray-300 focus:ring-gray-400",
+		primary:
+			"bg-brand-primary text-text-inverted hover:bg-brand-primaryDark focus:ring-brand-primary",
+		secondary:
+			"bg-brand-secondary text-text-base hover:bg-brand-secondaryDark focus:ring-brand-secondaryDark",
 	};
 
 	const width = fullWidth ? "w-full" : "";

@@ -4,6 +4,7 @@ import "./App.css";
 
 import AuthPage from "./pages/AuthPage";
 import NewsFeedPage from "./pages/NewsFeedPage";
+import FullArticle from "./components/newsfeed/FullArticle";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 			<Routes>
 				<Route path="/auth" element={<AuthPage />} />
 				<Route path="/news" element={<NewsFeedPage />} />
+				<Route path="/news/:id" element={<FullArticle />} />
 			</Routes>
 		</Router>
 	);
