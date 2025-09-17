@@ -1,0 +1,43 @@
+import { useState } from "react";
+import type { z } from "zod";
+
+import { useAuthStore } from "../store/useAuthStore";
+import type { loginSchema, registerSchema } from "../utils/schemas";
+import AuthForm from "../components/AuthForm";
+import Button from "../components/Button";
+
+type AuthMode = "login" | "register";
+type LoginFormData = z.infer<typeof loginSchema>;
+type RegisterFormData = z.infer<typeof registerSchema>;
+
+export default function AuthPage() {
+	const [mode, setMode] = useState<AuthMode>("login");
+	const login = useAuthStore((state) => state.login);
+
+	const isLogin = mode === "login";
+
+	const handleAuthSubmit = (data: LoginFormData | RegisterFormData) => {
+		console.log("Form submitted:", data);
+		login(data.email); // mock login
+	};
+
+	return (
+		<div className="bg-gray p-12 rounded-lg " style={{ width: "480px" }}>
+			<h1 className="text-4xl font-bold mb-8 text-center">
+				{isLogin ? "Login" : "Register"}
+			</h1>
+			<AuthForm mode={mode} onSubmit={handleAuthSubmit} />
+			<p className="mt-6 text-center text-sm">
+				{isLogin ? "No account?" : "Already have an account?"}{" "}
+				<Button
+					className="ml-2"
+					type="button"
+					variant="secondary"
+					onClick={() => setMode(isLogin ? "register" : "login")}
+				>
+					{isLogin ? "Register" : "Login"}
+				</Button>
+			</p>
+		</div>
+	);
+}
