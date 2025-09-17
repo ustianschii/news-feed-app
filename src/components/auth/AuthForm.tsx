@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { z } from "zod";
-import FormField from "./FormField";
 
-import { loginSchema, registerSchema } from "../utils/schemas";
-import Button from "./Button";
+import { loginSchema, registerSchema } from "../../utils/schemas";
+import FormField from "../shared/FormField";
+import Button from "../shared/Button";
 
 type AuthMode = "login" | "register";
 type LoginFormData = z.infer<typeof loginSchema>;

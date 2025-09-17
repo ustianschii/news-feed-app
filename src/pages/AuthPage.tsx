@@ -3,8 +3,8 @@ import type { z } from "zod";
 
 import { useAuthStore } from "../store/useAuthStore";
 import type { loginSchema, registerSchema } from "../utils/schemas";
-import AuthForm from "../components/AuthForm";
-import Button from "../components/Button";
+import AuthForm from "../components/auth/AuthForm";
+import Button from "../components/shared/Button";
 
 type AuthMode = "login" | "register";
 type LoginFormData = z.infer<typeof loginSchema>;
