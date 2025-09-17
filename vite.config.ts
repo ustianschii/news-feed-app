@@ -5,6 +5,7 @@ import checker from "vite-plugin-checker";
 import viteCompression from "vite-plugin-compression";
 import inspect from "vite-plugin-inspect";
 import svgr from "vite-plugin-svgr";
+
 import virtualModules from "./src/plugins/virtual_modules.plugin";
 
 // https://vite.dev/config/
