@@ -15,15 +15,15 @@ export default function FormField({
 }: FormFieldProps) {
 	return (
 		<div>
-			<label className="block font-medium">
+			<label className="block font-medium text-text-inverted">
 				{label}
 				<input
 					type={type}
 					{...registration}
-					className="w-full px-4 py-2 mt-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+					className="w-full px-4 py-2 mt-1 border border-brand-secondary rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary"
 				/>
 			</label>
-			{error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
+			{error && <p className="text-danger text-sm mt-1">{error.message}</p>}
 		</div>
 	);
 }

@@ -18,16 +18,19 @@ export default function AuthPage() {
 
 	const handleAuthSubmit = (data: LoginFormData | RegisterFormData) => {
 		console.log("Form submitted:", data);
-		login(data.email); // mock login
+		login(data.email);
 	};
 
 	return (
-		<div className="bg-gray p-12 rounded-lg " style={{ width: "480px" }}>
-			<h1 className="text-4xl font-bold mb-8 text-center">
+		<div
+			className="bg-background-gray p-12 rounded-xl max-w-md mx-auto"
+			style={{ width: "480px" }}
+		>
+			<h1 className="text-4xl font-bold mb-8 text-center text-text-inverted">
 				{isLogin ? "Login" : "Register"}
 			</h1>
 			<AuthForm mode={mode} onSubmit={handleAuthSubmit} />
-			<p className="mt-6 text-center text-sm">
+			<p className="mt-6 text-center text-sm text-text-inverted">
 				{isLogin ? "No account?" : "Already have an account?"}{" "}
 				<Button
 					className="ml-2"
