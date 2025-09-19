@@ -1,7 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
+
 import NewsCard from "../components/newsfeed/NewsCard";
-import { mockNews } from "../utils/mocks/mockNews";
+import Loading from "../components/shared/Loading";
+import { fetchNews } from "../api/newsService";
+import type { NewsArticle } from "../types/news";
 
 export default function NewsFeedPage() {
+	const { data, isLoading, isError } = useQuery<NewsArticle[]>({
+		queryKey: ["news-feed"],
+		queryFn: fetchNews,
+	});
+
+	if (isLoading) return <Loading />;
+	if (isError) return <div>Error fetching data.</div>;
+
 	return (
 		<div className="p-12">
 			<h1 className="text-4xl font-bold mb-10 text-center text-text-light">
@@ -9,15 +21,15 @@ export default function NewsFeedPage() {
 			</h1>
 
 			<div className="grid gap-8 max-w-4xl mx-auto">
-				{mockNews.map((news) => (
+				{data?.map((article) => (
 					<NewsCard
-						key={news.id}
-						id={news.id}
-						title={news.title}
-						imageUrl={news.imageUrl}
-						summary={news.summary}
-						author={news.author}
-						date={news.date}
+						key={article.id}
+						id={article.id}
+						title={article.title}
+						imageUrl={article.imageUrl}
+						summary={article.summary}
+						author={article.author}
+						date={article.date}
 					/>
 				))}
 			</div>

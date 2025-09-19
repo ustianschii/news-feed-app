@@ -1,4 +1,4 @@
-function virtualModules(modules?: string[]) {
+function virtualModules(modules: string[] = []) {
 	return {
 		name: "virtual-modules",
 		resolveId(id: string) {
@@ -9,7 +9,10 @@ function virtualModules(modules?: string[]) {
 		},
 		load(id: string) {
 			if (id === "virtual:plugins") {
-				return modules?.map((m) => `import './src/modules/${m}.ts'`).join("\n");
+				return modules
+					.filter(Boolean)
+					.map((m) => `import './src/modules/${m}.ts'`)
+					.join("\n");
 			}
 			return null;
 		},

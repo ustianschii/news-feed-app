@@ -1,4 +1,6 @@
-export const mockNews = [
+import type { NewsArticle } from "../../types/news";
+
+export const mockNews: NewsArticle[] = [
 	{
 		id: "1",
 		title: "React 19 Released",
