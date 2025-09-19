@@ -19,9 +19,10 @@ const FullArticle = () => {
 				<Button variant="secondary">Back to News Feed</Button>
 			</Link>
 			<img
+				className="w-full h-64 object-contain rounded-lg mb-6"
+				loading="lazy"
 				src={article.imageUrl}
 				alt={article.title}
-				className="w-full h-64 object-contain rounded-lg mb-6"
 			/>
 			<h1 className="text-3xl font-bold mb-4 text-text-light">
 				{article.title}

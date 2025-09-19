@@ -12,13 +12,18 @@ type RegisterFormData = z.infer<typeof registerSchema>;
 
 export default function AuthPage() {
 	const [mode, setMode] = useState<AuthMode>("login");
+
 	const login = useAuthStore((state) => state.login);
+	const register = useAuthStore((state) => state.register);
 
 	const isLogin = mode === "login";
 
 	const handleAuthSubmit = (data: LoginFormData | RegisterFormData) => {
-		console.log("Form submitted:", data);
-		login(data.email);
+		if ("username" in data) {
+			register(data.username, data.email, data.password);
+		} else {
+			login(data.email, data.password);
+		}
 	};
 
 	return (
